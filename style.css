@@ -42,7 +42,7 @@ body {
 }
 
 .Clear,
-.zero {
+.egal {
   grid-column: 1 / 3;
   background-color: #b8bedd !important;
 }
@@ -67,7 +67,7 @@ body {
 }
 
 .Clear:active,
-.zero:active {
+.egal:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
     inset -5px -5px 10px #b8bedd;
   color: black !important;
