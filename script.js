@@ -1,36 +1,39 @@
-let buttons = document.querySelectorAll("button");
 let screen = document.querySelector(".screen");
-let clearBtn = document.querySelector(".Clear");
+let buttons = document.querySelectorAll("button");
+let clearBtn = document.querySelector(".clear");
+let toggleBtn = document.querySelector(".toggle>i");
+let body = document.querySelector("body");
 
 let firstValue = 0;
 let isDecimal = false;
-let waitforSecondvalue = false;
 let operatorSign = "";
+let waitforsecondValue = false;
 
-function resetCalcul() {
-  let firstValue = 0;
-  let isDecimal = false;
-  let waitforSecondvalue = false;
-  let operatorSign = "";
+function clear() {
+  firstValue = 0;
+  isDecimal = false;
+  operatorSign = "";
+  waitforsecondValue = false;
   screen.textContent = firstValue;
 }
 
-clearBtn.addEventListener("click", resetCalcul);
+clearBtn.addEventListener("click", clear);
 
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     if (button.classList.contains("digit")) {
       let content = button.value;
-
-      if (waitforSecondvalue) {
+      if (waitforsecondValue) {
         screen.textContent = "";
-        waitforSecondvalue = false;
+        waitforsecondValue = false;
       }
 
       if (screen.textContent == "0") {
         screen.textContent = content;
+        console.log("clicked");
       } else {
         screen.textContent += content;
+        console.log("clicked");
       }
     } else if (button.classList.contains("decimal")) {
       if (isDecimal == false) {
@@ -40,11 +43,12 @@ buttons.forEach((button) => {
     } else if (button.classList.contains("operator")) {
       firstValue = Number(screen.textContent);
       operatorSign = button.value;
-      waitforSecondvalue = true;
       isDecimal = false;
+      waitforsecondValue = true;
     } else if (button.classList.contains("egal")) {
       let currentValue = Number(screen.textContent);
       console.log(firstValue, operatorSign, currentValue);
+      // screen.textContent = `${firstValue} ${operatorSign} ${currentValue}`;
       let res = 0;
       switch (operatorSign) {
         case "+":
@@ -69,3 +73,18 @@ buttons.forEach((button) => {
     }
   });
 });
+
+toggleBtn.addEventListener("click", function () {
+  console.log("clicked");
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    toggleBtn.classList.replace("fa-moon", "fa-sun");
+    console.log("changed");
+  } else {
+    toggleBtn.classList.replace("fa-sun", "fa-moon");
+  }
+});
+
+// <i class="bi bi-brightness-high"></i>
+//
+// <i class="fa-solid fa-sun"></i>

@@ -6,7 +6,7 @@
 /* f0e6ef */
 /* #edf1f4 */
 body {
-  height: 70vh;
+  height: 50vh;
   background-color: #f8f7ff;
 }
 
@@ -41,7 +41,7 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.Clear,
+.clear,
 .egal {
   grid-column: 1 / 3;
   background-color: #b8bedd !important;
@@ -66,7 +66,7 @@ body {
   color: #89023e;
 }
 
-.Clear:active,
+.clear:active,
 .egal:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
     inset -5px -5px 10px #b8bedd;
@@ -76,4 +76,51 @@ body {
 .plusSign:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
     inset -5px -5px 10px #efc3e6;
+}
+
+.toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #b8bedd;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #b8bedd;
+  cursor: pointer;
+}
+
+/* dark mode  */
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark .buttons {
+  border: 5px solid rgb(255, 254, 254);
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 20px rgb(39, 39, 39);
+}
+
+.dark .calculBtn {
+  background-color: #f0e6ef;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 20px rgb(10, 10, 10);
+}
+
+.dark .screen {
+  border: 5px solid rgb(255, 255, 255);
+  border-bottom: none;
+  /*  padding: 30px;
+  text-align: right;
+  font-size: 2em; */
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 20px #1a191a;
+}
+
+.dark .toggle {
+  color: black;
+  background-color: #b8bedd;
 }
